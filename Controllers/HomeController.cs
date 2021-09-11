@@ -33,13 +33,11 @@ namespace DetectiveAgency.Controllers
         }
         [HttpGet]
         public IActionResult CalcPay()
-        //public IActionResult CalcSalary()
         {
             ViewBag.Salary = 0;
             return View();
         }
         [HttpPost]
-        //public IActionResult CalcSalary(Employee model)
         public IActionResult CalcPay(Employee model)
         {
             if (ModelState.IsValid)

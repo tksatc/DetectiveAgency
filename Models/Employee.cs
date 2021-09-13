@@ -8,7 +8,7 @@ namespace DetectiveAgency.Models
 {
     public class Employee
     {
-        [Required]
+        [Required(ErrorMessage = "Please enter an employee ID number.")]
         public int Id { get; set; }
         [StringLength(30)]
         public string Name { get; set; }
@@ -16,13 +16,13 @@ namespace DetectiveAgency.Models
         [Range(10,75,ErrorMessage = "Hours must be between 10 and 75.")]
         public double Hours { get; set; }
         [Required]
-        [Range(15, 75, ErrorMessage = "Rate should be between $15 and $75.")]
+        [Range(15,75,ErrorMessage = "Rate should be between $15 and $75.")]
         public double Rate { get; set; }
-        public double CalcSalary()
+        public double? CalcSalary()
         {
-            double grossPay = 0;
-            double overtime = 0;
-            double regPay = 0;
+            double? grossPay = 0;
+            double? overtime = 0;
+            double? regPay = 0;
             if (Hours > 40)
             {
                 regPay = 40 * Rate;

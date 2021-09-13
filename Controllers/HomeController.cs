@@ -34,7 +34,7 @@ namespace DetectiveAgency.Controllers
         [HttpGet]
         public IActionResult CalcPay()
         {
-            ViewBag.Salary = 0;
+            ViewBag.grossPay = 0;
             return View();
         }
         [HttpPost]
@@ -42,11 +42,11 @@ namespace DetectiveAgency.Controllers
         {
             if (ModelState.IsValid)
             {
-                ViewBag.Salary = model.CalcSalary();
+                ViewBag.grossPay = model.CalcSalary();
             }
             else
             {
-                ViewBag.Salary = 0;
+                ViewBag.grossPay = 0;
             }
             return View(model);
         }
